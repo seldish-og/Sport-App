@@ -1,172 +1,165 @@
 <template lang="pug">
 
 header.header
-        a.logo(href="") Developers Tale
-        input#menu-btn.menu-btn(type="checkbox")
-        label.menu-icon(for="menu-btn")
-                span.navicon
-        ul.menu
-                li
-                        a(href="") Новости
-                li
-                        a(href="") Карта Мероприятий
-                li
-                        a(href="") Команды
-                li
-                    router-link(to="/login")
-                            MediumBtn(isActive=false) Войти
-                li
-                    router-link(to="/sign_up") 
-                            MediumBtn() Зарегестрироваться
+    a.logo(href="") LiveRunners
+
+    nav
+        .hamburger(@click="open")
+            .top-bun
+            .meat
+            .bottom-bun
+
+        ul.menu(:style="[isOpen ? openStyle : {}]")
+            li
+                a(href="") Новости
+            li
+                a(href="") Карта Мероприятий
+            li
+                a(href="") Команды
+            router-link(to="/login" @click="open")
+                MediumBtn(isActive=false) Войти
+            router-link(to="/sign_up" @click="open") 
+                MediumBtn() Зарегестрироваться
+
 
 </template>
 
 <script>
+
 export default {
-        name: "LayoutHeader" 
+    name: "LayoutHeader",
+    data: function() {
+        return {
+            isOpen:  false,
+            openStyle: {
+                height: "380px"
+            }
+        }
+    },
+    methods: {
+        open() {
+            if (this.isOpen == false) {
+                this.isOpen = true
+            } else {
+                this.isOpen = false
+            }
+        }
+    }
+
 }
 
 </script>
 
-<style scoped>
+<style lang="sass" scoped>
+
+.header
+    display: flex
+    justify-content: space-between
+    align-items: center
+    position: relative
+    z-index: 2
+    padding: 20px
+    background: #fff
 
 
-a {
-    color: #000;
-}
+    .menu
+        display: flex
+        align-items: center
+        gap: 20px
 
-/* header */
+        li
+            padding: 20px
 
-.header {
-    background-color: #fff;
-    box-shadow: 1px 1px 4px 0 rgba(0,0,0,.1);
-    position: fixed;
-    width: 100%;
-    z-index: 3;
-}
+.hamburger
+    display: none
+    align-self: center
+    flex-direction: column
+    justify-content: space-between
+    width: 40px
+    height: 30px
+    cursor: pointer
+    float: right
+    
+    div
+        align-self: flex-end
+        height: 4px
+        width: 100%
+        background: #20B486
+        
+    .meat
+        width: 75%
+        transition: all 200ms ease-in-out
+        
+    .bottom-bun
+        width: 50%
+        transition: all 400ms ease-in-out
+    
+    &:hover
+        div
+            width: 100%
+        
+        .top-bun
+            animation: burger-hover 1s infinite ease-in-out alternate
+        
+        .meat
+            animation: burger-hover 1s infinite ease-in-out alternate forwards 200ms
+        
+        .bottom-bun
+            animation: burger-hover 1s infinite ease-in-out alternate forwards 400ms
 
-.header ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    overflow: hidden;
-    background-color: #fff;
-}
 
-.header li a {
-    display: block;
-    padding: 20px 20px;
-    border-right: 1px solid #f4f4f4;
-    text-decoration: none;
-}
+        
+//Animation Keyframes
+@keyframes burger-hover
+    0%
+        width: 100%
+    50%
+        width: 50%
+    100%
+        width: 100%
 
-.header li a:hover,
-.header .menu-btn:hover {
-    background-color: #f4f4f4;
-}
 
-.header .logo {
-    display: block;
-    float: left;
-    font-size: 2em;
-    padding: 10px 20px;
-    text-decoration: none;
-}
+@media screen and (max-width: 1000px) 
+    .hamburger
+        display: flex !important
 
-/* menu */
+    .header
+        align-items: flex-start !important
+        padding: 15px 15px 0 15px
 
-.header .menu {
-    display: flex;
-    align-items: center;
-    clear: both;
-    max-height: 100%;
-    transition: max-height .2s ease-out;
-}
-
-/* menu icon */
-
-.header .menu-icon {
-    cursor: pointer;
-    display: inline-block;
-    float: right;
-    padding: 28px 20px;
-    position: relative;
-    user-select: none;
-}
-
-.header .menu-icon .navicon {
-    background: #333;
-    display: block;
-    height: 2px;
-    position: relative;
-    transition: background .2s ease-out;
-    width: 18px;
-}
-
-.header .menu-icon .navicon:before,
-.header .menu-icon .navicon:after {
-    background: #333;
-    content: '';
-    display: block;
-    height: 100%;
-    position: absolute;
-    transition: all .2s ease-out;
-    width: 100%;
-}
-
-.header .menu-icon .navicon:before {
-    top: 5px;
-}
-
-.header .menu-icon .navicon:after {
-    top: -5px;
-}
-
-/* menu btn */
-
-.header .menu-btn {
-    display: none;
-}
-
-.header .menu-btn:checked ~ .menu {
-    max-height: 0px;
-}
-
-.header .menu-btn:checked ~ .menu-icon .navicon {
-    background: transparent;
-}
-
-.header .menu-btn:checked ~ .menu-icon .navicon:before {
-    transform: rotate(-45deg);
-}
-
-.header .menu-btn:checked ~ .menu-icon .navicon:after {
-    transform: rotate(45deg);
-}
-
-.header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:before,
-.header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after {
-    top: 0;
-}
-
-/* 48em = 768px */
-
-@media (min-width: 1130px) {
-    .header li {
-        float: left;
-    }
-    .header li a {
-        padding: 20px 30px;
-    }
-    .header .menu {
-        clear: none;
-        float: right;
-        max-height: none;
-    }
-    .header .menu-icon {
-        display: none;
-    }
-}
-
+    .menu
+        margin-top: 50px
+        margin-right: -5px
+        height: 0px
+        overflow: hidden
+        gap: 20px !important
+        transition: 0.2s ease
+        > li
+            padding: 15px !important
+        flex-direction: column
+        align-items: flex-end !important
 
 </style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
