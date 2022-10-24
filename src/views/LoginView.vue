@@ -1,4 +1,5 @@
 <template lang="pug">
+
 .auth
     AuthForm(title="Welcome").auth__form
         AuthInput(v-model="userame" type="text" placeholder="Login")

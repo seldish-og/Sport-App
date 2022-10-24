@@ -15,7 +15,8 @@ header.header
             li
                 a(href="") Карта Мероприятий
             li
-                a(href="") Команды
+                router-link(to="/commands" @click="close")
+                    a(href="") Команды
             router-link(to="/login" @click="close")
                 MediumBtn(isActive=false) Войти
             router-link(to="/sign_up" @click="close") 
@@ -27,7 +28,7 @@ header.header
 <script>
 
 export default {
-    name: "LayoutHeader",
+    name: "LayoutHeaderSimple",
     data: function() {
         return {
             isOpen:  false,
@@ -64,7 +65,7 @@ export default {
     align-items: center
     position: relative
     z-index: 2
-    padding: 20px
+    padding: 15px
     background: #fff
 
 
@@ -146,26 +147,3 @@ export default {
         align-items: flex-end !important
 
 </style>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
