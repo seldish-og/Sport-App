@@ -4,7 +4,7 @@ header.header
     a.logo(href="") LiveRunners
 
     nav
-        .hamburger(@click="open")
+        .hamburger(@click="openToggle")
             .top-bun
             .meat
             .bottom-bun
@@ -16,9 +16,9 @@ header.header
                 a(href="") Карта Мероприятий
             li
                 a(href="") Команды
-            router-link(to="/login" @click="open")
+            router-link(to="/login" @click="close")
                 MediumBtn(isActive=false) Войти
-            router-link(to="/sign_up" @click="open") 
+            router-link(to="/sign_up" @click="close") 
                 MediumBtn() Зарегестрироваться
 
 
@@ -37,11 +37,17 @@ export default {
         }
     },
     methods: {
+        close() {
+            this.isOpen = false
+        },
         open() {
+            this.isOpen = true
+        },
+        openToggle() {
             if (this.isOpen == false) {
-                this.isOpen = true
+                this.open()
             } else {
-                this.isOpen = false
+                this.close()
             }
         }
     }
