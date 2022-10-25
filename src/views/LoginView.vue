@@ -7,6 +7,7 @@
         AuthInput(v-model="password" type="password" placeholder="Password gain")
         .auth__buttons-row
             AuthBtn(@click.prevent="") Sign Up
+            span &nbsp;
             AuthBtn(@click.prevent="" active=true) Login
         AuthBtn(@click="submit") Login
     BubblesAnimation()

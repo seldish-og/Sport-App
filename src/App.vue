@@ -1,6 +1,6 @@
 <template lang="pug">
 
-LayoutAutoHeader(isAuthorized=true)
+LayoutAutoHeader(isAuthorized=false)
 router-view
 
 </template>

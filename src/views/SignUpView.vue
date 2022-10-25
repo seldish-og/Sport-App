@@ -4,8 +4,9 @@
         AuthInput(v-model="userame" type="text" placeholder="Login")
         AuthInput(v-model="password" type="password" placeholder="Password")
         .auth__buttons-row
-            AuthBtn(@click.prevent="") Sign Up
-            AuthBtn(@click.prevent="" active=true) Login
+            AuthBtn(@click.prevent="" active=true) Sign Up
+            span &nbsp;
+            AuthBtn(@click.prevent="") Login
         AuthBtn(@click="submit") Login
     BubblesAnimation()
 

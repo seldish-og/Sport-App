@@ -11,8 +11,10 @@ header.header
 
         ul.menu(:style="[isOpen ? openStyle : {}]")
             li
+            router-link(to="/news" @click="close")
                 a(href="") Новости
             li
+            router-link(to="/news#map" @click="close")
                 a(href="") Карта Мероприятий
             li
                 router-link(to="/commands" @click="close")
@@ -73,6 +75,9 @@ export default {
         display: flex
         align-items: center
         gap: 20px
+
+        > *
+            margin-left: 20px
 
         li
             padding: 20px
