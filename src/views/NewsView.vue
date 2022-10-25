@@ -1,6 +1,8 @@
 <template lang="pug">
 
 section.map.container#map
+    LayoutMap()
+
 
 section.news.container
     div(v-for="i in 10")
@@ -12,11 +14,13 @@ section.news.container
 <script>
 
 import NewsCard from "@/components/layout/LayoutNewsCard.vue"
+import LayoutMap from "@/components/layout/LayoutMap.vue"
 
 export default {
     name: "NewsView.vue",
     components: {
         NewsCard,
+        LayoutMap
     }
 }
 </script>
