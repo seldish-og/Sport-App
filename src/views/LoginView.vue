@@ -1,7 +1,7 @@
 <template lang="pug">
 .auth
     AuthForm(title="Welcome").auth__form
-        AuthInput(v-model="userame" type="text" placeholder="Login")
+        AuthInput(v-model="username" type="text" placeholder="Login")
         AuthInput(v-model="password" type="password" placeholder="Password")
         .auth__buttons-row
             AuthBtn(@click.prevent="" active=true) Sign Up

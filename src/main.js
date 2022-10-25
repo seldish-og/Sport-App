@@ -1,6 +1,7 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
+// import store from "./store"
 
 // global styles
 import "@/assets/sass/global.sass"
@@ -14,6 +15,7 @@ import LowBtn from "@/components/button/LowBtn"
 
 const app = createApp(App)
 
+// app.use(store)
 app.component("HighBtn", HighBtn)
 app.component("MediumBtn", MediumBtn)
 app.component("LowBtn", LowBtn)

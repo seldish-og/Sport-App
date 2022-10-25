@@ -24,6 +24,7 @@ export default {
 
 .commands 
     display: flex
+    justify-content: space-around
     flex-wrap: wrap
     gap: 20px
 

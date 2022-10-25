@@ -43,6 +43,11 @@ const routes = [
     path: "/uploadphoto",
     name: "uploadphoto",
     component: UploadPhotoView,
+  },
+  {
+    path: "/",
+    name: "index",
+    component: NewsCardView 
   }
 ]
 
