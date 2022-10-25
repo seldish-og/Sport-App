@@ -1,13 +1,15 @@
 <template lang="pug">
+
 .auth
     AuthForm(title="Welcome").auth__form
         AuthInput(v-model="userame" type="text" placeholder="Login")
         AuthInput(v-model="password" type="password" placeholder="Password")
+        AuthInput(v-model="password" type="password" placeholder="Password gain")
         .auth__buttons-row
-            AuthBtn(@click.prevent="" active=true) Sign Up
+            AuthBtn(@click.prevent="") Sign Up
             span &nbsp;
-            AuthBtn(@click.prevent="") Login
-        AuthBtn(@click="submit") Login
+            AuthBtn(@click.prevent="" active=true) Sign Up
+        AuthBtn(@click="submit") Sign Up
     BubblesAnimation()
 
 </template>
@@ -22,24 +24,24 @@ import AuthError from "@/components/error/AuthError.vue"
 import BubblesAnimation from "@/components/animation/BubblesAnimation.vue"
 
 export default {
-        name: "SignUpView",
+        name: "LoginView",
         data: function() {
             return {
                 username: "",
                 password: "",
             }
         },
-        props: ["isLogin"],
         components: {
             AuthInput,
             AuthForm,
             AuthBtn,
-            AuthError,
             BubblesAnimation,
+            AuthError,
         },
         methods: {
             submit: function() {
-                axios.post('http://localhost:3000/auth/login', {
+                this.$router.push('/uploadphoto')
+                axios.post('http://localhost:3000/auth/uploadphoto', {
                     username: this.username,
                     password: this.password
                 })
@@ -72,5 +74,6 @@ export default {
         width: 90%
         margin: 0 auto 10px auto
         gap: 10px
+
 
 </style>

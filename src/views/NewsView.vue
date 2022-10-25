@@ -11,7 +11,7 @@ section.news.container
 
 <script>
 
-import NewsCard from "@/components/layout/NewsCard.vue"
+import NewsCard from "@/components/layout/LayoutNewsCard.vue"
 
 export default {
     name: "NewsView.vue",
@@ -26,6 +26,10 @@ export default {
 .news
     display: flex
     flex-wrap: wrap
-    gap: 20px
+
+    > *
+        margin-left: 5px
+        margin-right: 5px
+        margin-bottom: 10px
 
 </style>

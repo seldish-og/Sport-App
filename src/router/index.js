@@ -5,17 +5,19 @@ import SingUpView from '../views/SignUpView.vue'
 import CommandsView from '../views/CommandsView.vue'
 import NewsView from '../views/NewsView.vue'
 import NewsCardView from '../views/NewsCardView.vue'
+import CommandView from '../views/CommandView.vue'
+import UploadPhotoView from '../views/UploadPhotoView.vue'
 
 const routes = [
   {
     path: '/login',
-    name: 'signUp',
-    component: SingUpView,
+    name: 'login',
+    component: LoginView,
   },
   {
     path: '/sign_up',
-    name: 'login',
-    component: LoginView,
+    name: 'signUp',
+    component: SingUpView,
   },
   {
     path: '/commands',
@@ -31,6 +33,16 @@ const routes = [
     path: "/news-item/:id",
     name: "news-item",
     component: NewsCardView,
+  },
+  {
+    path: "/command/:id",
+    name: "command",
+    component: CommandView,
+  },
+  {
+    path: "/uploadphoto",
+    name: "uploadphoto",
+    component: UploadPhotoView,
   }
 ]
 

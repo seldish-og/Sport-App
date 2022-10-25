@@ -1,7 +1,7 @@
 <template lang="pug">
 
 header.header
-    a.logo(href="") LiveRunners
+    a.logo(href="") СпортДляВсех
 
     nav
         .hamburger(@click="openToggle")
@@ -11,18 +11,20 @@ header.header
 
         ul.menu(:style="[isOpen ? openStyle : {}]")
             li
-            router-link(to="/news" @click="close")
-                a(href="") Новости
+                router-link(to="/news" @click="close")
+                    a(href="") Новости
             li
-            router-link(to="/news#map" @click="close")
-                a(href="") Карта Мероприятий
+                router-link(to="/news#map" @click="close")
+                    a(href="") Карта Мероприятий
             li
                 router-link(to="/commands" @click="close")
                     a(href="") Команды
-            router-link(to="/login" @click="close")
-                MediumBtn(isActive=false) Войти
-            router-link(to="/sign_up" @click="close") 
-                MediumBtn() Зарегестрироваться
+            li
+                router-link(to="/login" @click="close")
+                    MediumBtn(isActive=false) Войти
+            li
+                router-link(to="/sign_up" @click="close") 
+                    MediumBtn() Зарегестрироваться
 
 
 </template>
@@ -35,7 +37,7 @@ export default {
         return {
             isOpen:  false,
             openStyle: {
-                height: "380px"
+                height: "320px",
             }
         }
     },
@@ -70,17 +72,20 @@ export default {
     padding: 15px
     background: #fff
 
+    nav
+        position: relative
 
     .menu
         display: flex
         align-items: center
+        overflow: hidden
         gap: 20px
+        background: #fff
+        z-index: 3
 
         > *
             margin-left: 20px
 
-        li
-            padding: 20px
 
 .hamburger
     display: none
@@ -139,15 +144,19 @@ export default {
         align-items: flex-start !important
         padding: 15px 15px 0 15px
 
+
     .menu
         margin-top: 50px
         margin-right: -5px
         height: 0px
-        overflow: hidden
+        right: 0
+        top: 0
         gap: 20px !important
         transition: 0.2s ease
         > li
-            padding: 15px !important
+            margin: 0 !important
+            padding: 15px 0 !important
+            font-size: 14px
         flex-direction: column
         align-items: flex-end !important
 

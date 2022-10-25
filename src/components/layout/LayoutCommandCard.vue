@@ -1,7 +1,7 @@
 <template lang="pug">
 
 .card
-    img(src="").card__avatar
+    img(src="~@/assets/img/Jordan.jpg").card__avatar
     .card__name {{name}}
     .card__date {{date}}
     .card__description {{description}}
@@ -22,5 +22,9 @@ export default {
 </script>
 
 <style lang="sass" scoped>
+
+.card
+    display: flex
+    flex-direction: column
 
 </style>

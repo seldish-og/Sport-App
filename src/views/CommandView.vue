@@ -1,21 +1,28 @@
 <template lang="pug">
     
 .command 
-    .command__date
-    .command__name
-    .command__description
-    .command__contacts
-    .command__sport
-    .command__owner
+    img(src="~@/assets/img/Jordan.jpg")
+    .command__main
+        .command__name Hello there
+        .command__date 20/20/20
+        .command__description this is description
+        .command__contacts this is contact
+        .command__sport this is sport
+        .command__owner 
 
 </template>
 
 <script>
 export default {
-    name: "CommandView"    
+    name: "CommandView",
 }
 </script>
 
-<script>
+<style lang="sass" scoped>
 
-</script>
+.command
+    display: flex
+    &__main
+        display: flex
+        flex-direction: column
+</style>

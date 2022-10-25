@@ -26,9 +26,6 @@ export default {
     display: flex
     flex-direction: column
     max-width: 300px
-    flex-gap: 20px
-    margin-right: 15px
-    margin-bottom: 15px
 
     &__main
         display: flex

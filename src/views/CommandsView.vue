@@ -1,7 +1,9 @@
 <template lang="pug">
 
 .commands.container
-    CommandCard(v-for="i in 10")
+    div(v-for="i in 10")
+        a(:href="'/command/' + i")
+            CommandCard(name="name", description="description")
     
 </template>
 
@@ -24,6 +26,9 @@ export default {
     display: flex
     flex-wrap: wrap
     gap: 20px
-    margin-right: 20px
+
+    > *
+        margin-right: 20px
+        margin-bottom: 20px
 
 </style>
