@@ -75,6 +75,7 @@ export default {
     .menu
         position: absolute
         display: flex
+        overflow: hidden
         align-items: center
         flex-direction: column
         top: 55px 
